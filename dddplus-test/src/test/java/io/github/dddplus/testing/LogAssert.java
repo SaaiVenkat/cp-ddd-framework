@@ -26,6 +26,13 @@ public class LogAssert {
     private LogAssert() {
     }
 
+    public static void clearLog() throws IOException {
+        reader = new RandomAccessFile(logFile, "w");
+        reader.setLength(0);
+        reader.close();
+        reader = null;
+    }
+
     /**
      * Assert that the log file not contains specified events(log message).
      *
