@@ -1,16 +1,24 @@
 package io.github.dddplus.testing;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 
 import static io.github.dddplus.testing.LogAssert.assertContains;
 import static io.github.dddplus.testing.LogAssert.assertNotContains;
+import static io.github.dddplus.testing.LogAssert.clearLog;
 import static org.junit.Assert.fail;
 
 @Slf4j
 public class LogAssertTest {
+
+    @Before()
+    void setUp() throws IOException {
+        clearLog();
+    }
 
     @Test
     public void contains() throws IOException {
